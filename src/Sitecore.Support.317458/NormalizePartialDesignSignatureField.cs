@@ -17,7 +17,7 @@
         Item item = Event.ExtractParameter<ItemCreatedEventArgs>(args, 0).Item;
         if (item != null && item.IsPartialDesign())
         {
-          string normalizedName = item.Name.GetNormalizedName();
+          string normalizedName = item[Sitecore.XA.Foundation.Presentation.Templates.PartialDesign.Fields.Signature].GetNormalizedName();
           using (new EditContext(item))
           {
             item[Sitecore.XA.Foundation.Presentation.Templates.PartialDesign.Fields.Signature] = normalizedName;
